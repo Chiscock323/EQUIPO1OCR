@@ -1,0 +1,2 @@
+/index -> Form to upload pdf if not using postman or API tools.
+/upload_pdf -> send pdf as form-data key:file for OCR extraction
