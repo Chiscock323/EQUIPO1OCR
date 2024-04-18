@@ -21,25 +21,31 @@ Esta es una aplicación web desarrollada con Flask que permite a los usuarios ca
 ### Configuración del entorno y Ejecución
 
 1. Clona el repositorio desde GitHub:
+git clone [URL del repositorio de GitHub]
 
 
 2. Navega al directorio del proyecto clonado:
+cd [Nombre del directorio del proyecto]
+
 
 
 3. Crea y activa un entorno virtual:
+4. 
+python -m venv venv
+venv\Scripts\activate # En Windows
+source venv/bin/activate # En Unix o MacOS
+
+5. Instala las dependencias necesarias usando pip:
+pip install -r requirements.txt
+
+6. Ejecuta la aplicación con Flask:
+
+flask run 
 
 
-4. Instala las dependencias necesarias usando pip:
 
 
-5. Ejecuta la aplicación con Flask:
-
-
-
-
-
-
-6. Abre tu navegador y ve a `http://127.0.0.1:5000/`. Utiliza la interfaz para cargar y procesar el archivo PDF.
+7. Abre tu navegador y ve a `http://127.0.0.1:5000/`. Utiliza la interfaz para cargar y procesar el archivo PDF.
 
 
 
