@@ -32,6 +32,10 @@ Esta aplicación web, desarrollada por el Equipo 1, ofrece un servicio que permi
 
 cd ruta/a/EasyOCR-Flask-Equipo1UCC/EasyOCR-Flask-Equipo1UCC/dist/easyocr_flask_equipo1
 
+3.1  activa el entorno virtual incluido:
+cd ruta/al/directorio/descomprimido
+.\venv\Scripts\activate # En Windows
+source venv/bin/activate # En Unix o MacOS
 
 4. Ejecuta el archivo `easyocr_flask_equipo1.exe`. Al hacerlo, se abrirá una consola de comandos y se iniciará automáticamente el servidor de Flask.
 
