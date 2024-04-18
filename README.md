@@ -1,12 +1,65 @@
 # EQUIPO 1 - EasyOCR with web service on Flask
-Conformado por: Eduardo Morato, Francisco Morales Arcos, Angel Uriel Sandria
 
-El reconocimiento óptico de caracteres (OCR) es una tecnología que permite convertir imágenes de texto en texto digital editable. Este proyecto de OCR en Python busca explorar y aplicar diversas técnicas de procesamiento de imágenes y aprendizaje automático para extraer texto de imágenes de manera precisa y eficiente.
+# Aplicación de OCR con Flask
 
-El objetivo principal de este proyecto es desarrollar un sistema robusto que pueda analizar imágenes de diferentes fuentes y calidades, y extraer el texto con la mayor precisión posible. Para lograr esto, se utilizarán bibliotecas y herramientas populares de Python, como OpenCV, Tesseract OCR y posiblemente técnicas de aprendizaje profundo.
+Esta es una aplicación web desarrollada con Flask que permite a los usuarios cargar archivos PDF y extraer texto de ellos utilizando OCR (Reconocimiento Óptico de Caracteres).
 
-Además, este proyecto se integrará con un servicio web utilizando Flask. La implementación de un servicio web permitirá a los usuarios enviar imágenes para ser procesadas por el sistema de OCR de manera remota a través de solicitudes HTTP. Esto facilitará la integración del sistema con otras aplicaciones y servicios, así como también su despliegue en entornos de producción.
+## Características
 
-Este documento proporcionará una visión general del proceso de OCR, incluyendo la adquisición y preprocesamiento de imágenes, la segmentación de texto, el reconocimiento de caracteres y la salida del texto reconocido en un formato utilizable. Además, se discutirán posibles desafíos y soluciones, así como también recomendaciones para mejorar la precisión y velocidad del sistema.
+- Carga de archivos PDF a través de la interfaz web.
+- Conversión de PDF a imágenes PNG.
+- Extracción de texto de imágenes utilizando EasyOCR.
+- Presentación de texto extraído en formato JSON.
 
-El proyecto está diseñado para ser modular y extensible, permitiendo futuras expansiones y mejoras. Se alienta a los desarrolladores a experimentar con diferentes enfoques y técnicas para optimizar el rendimiento del OCR en una variedad de escenarios y aplicaciones.
+## Instalación y Uso
+
+### Prerrequisitos
+
+- Python 3.6 o superior.
+- pip para la instalación de paquetes de Python.
+
+### Configuración del entorno y Ejecución
+
+1. Clona el repositorio desde GitHub:
+
+
+2. Navega al directorio del proyecto clonado:
+
+
+3. Crea y activa un entorno virtual:
+
+
+4. Instala las dependencias necesarias usando pip:
+
+
+5. Ejecuta la aplicación con Flask:
+
+
+
+
+
+
+6. Abre tu navegador y ve a `http://127.0.0.1:5000/`. Utiliza la interfaz para cargar y procesar el archivo PDF.
+
+
+
+### Guía de Instalación Paso a Paso
+
+Si necesitas una guía de instalación más detallada, consulta la sección detallada arriba bajo 'Configuración del entorno y Ejecución'.
+
+
+
+
+## Autores
+
+- [Angel sandria,Francisco Morales,Edurado Morato,Eliseo Ortíz] - 
+
+## Contacto
+
+- [202060400@ucc.mx]
+
+
+
+
+
+
