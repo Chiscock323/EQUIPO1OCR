@@ -1,0 +1,128 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>OCR Machine</title>
+            <style>
+                #loadingMessage {
+                    display: none;
+                    margin-top: 20px;
+                    font-size: 16px;
+                    color: gray;
+                }
+                button {
+                    margin-left: 30px;
+                    color: white;
+                    background-color: brown;
+                    border: 5px solid;
+                    border-radius: 10px;
+                    padding: 10px;
+                }
+                button:hover {
+                    background-color: black;
+                    border:5px solid;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>OCR Machine</h1>
+            <h3>Selecciona un archivo .pdf para extraer el texto usando herramientas de OCR. Las imágenes correspondientes al reconocimiento se mostrarán abajo.</h3>
+            <form id="pdfForm" enctype="multipart/form-data">
+                <input type="file" id="pdfFile" name="file" accept=".pdf">
+                <button type="submit">Enviar</button>
+            </form>
+
+            <button id="downloadAllBtn" style="display:none;">Descargar todas las imágenes</button>
+
+            <div id="imageContainer"></div>
+
+            <div id="loadingMessage">Esperando respuesta del servidor...</div>
+
+            <script>
+                document.getElementById('pdfForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    var formData = new FormData();
+                    var fileInput = document.getElementById('pdfFile');
+                    var file = fileInput.files[0];
+                    if (!file) return;
+
+                    formData.append('file', file);
+                    document.getElementById('loadingMessage').style.display = 'block';
+                    alert('Archivo enviado al OCR Machine');
+                    sendPDF(formData);
+                });
+
+                function sendPDF(formData) {
+                    fetch('/upload_pdf', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        displayImages(data.extracted_images);
+                        downloadText(data.text_file_path);
+                        document.getElementById('loadingMessage').style.display = 'none';
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Ocultar mensaje de espera en caso de error
+                        document.getElementById('loadingMessage').style.display = 'none';
+                    });
+                }
+
+                function displayImages(images) {
+                    var imageContainer = document.getElementById('imageContainer');
+                    imageContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar las nuevas imágenes
+                    context = document.createElement('h4');
+                    context.textContent = 'Imagenes obtenidas del OCR:';
+
+                    images.forEach(function(imageData) {
+                        var img = document.createElement('img');
+                        img.src = 'data:image/png;base64,' + imageData;
+                        img.style.marginRight = '10px'; // Añadir un margen derecho para separar las imágenes
+                        img.style.marginBottom = '10px'; // Añadir un margen inferior para separar las imágenes
+                        img.style.maxWidth = '400px'; // Limitar el ancho de las imágenes
+                        img.style.height = 'auto'; // Mantener la proporción de aspecto
+
+                        imageContainer.appendChild(img);
+                    });
+                    
+                    var downloadAllBtn = document.getElementById('downloadAllBtn');
+                    downloadAllBtn.style.display = 'block';
+                }
+
+                document.getElementById('downloadAllBtn').addEventListener('click', function() {
+                    var images = document.querySelectorAll('#imageContainer img');
+                    images.forEach(function(image, index) {
+                        var link = document.createElement('a');
+                        link.href = image.src;
+                        link.download = 'imagen_' + (index + 1) + '.png';
+                        link.click();
+                    });
+                });
+
+                function downloadText(textFilePath) {
+                    fetch(`/download_text?text_file_path=${encodeURIComponent(textFilePath)}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error al descargar el archivo de texto');
+                        }
+                        return response.text(); // Leer el contenido del archivo de texto
+                    })
+                    .then(textContent => {
+                        // Crear un enlace para descargar el archivo de texto
+                        var downloadLink = document.createElement('a');
+                        downloadLink.href = `data:text/plain;charset=utf-8,${encodeURIComponent(textContent)}`;
+                        downloadLink.download = 'extracted_text.txt';
+                        downloadLink.textContent = ' -> Obtener texto extraído <-';
+                        downloadLink.style.display = 'block'; // Mostrar como bloque para que esté en una nueva línea
+                        document.body.appendChild(downloadLink);
+                    })
+                    .catch(error => console.error('Error:', error));
+                }
+            </script>
+        </body>
+        </html>
