@@ -13,7 +13,11 @@ Esta aplicación web, desarrollada por el Equipo 1, ofrece un servicio que permi
 - Visualización del texto extraído y las imágenes procesadas en la página web.
 
 ## Funcionamiento
+Diagrama de secuencia sobre la comunicación y procesos del servidor.
 ![](https://github.com/Chiscock323/EQUIPO1OCR/blob/main/Diagrama%20funcionamiento.png)
+
+Diagrama de bloques para distinguir funciones, métodos, clases y entradas y salidas del proceso.
+![](https://github.com/Chiscock323/EQUIPO1OCR/blob/main/diagrama_easyocr_flask_equipo1.pdf)
 
 - Usuario envía PDF: El usuario selecciona un archivo PDF en la interfaz web y lo sube al servidor. Esto se hace a través del navegador web que envía una solicitud POST a la ruta /upload_pdf del servidor Flask.
 - Almacenamiento temporal de PDF: El servidor Flask recibe el archivo PDF y lo almacena temporalmente en el sistema de archivos del servidor para su procesamiento.
