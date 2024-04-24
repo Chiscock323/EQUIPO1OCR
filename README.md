@@ -12,6 +12,12 @@ Esta aplicación web, desarrollada por el Equipo 1, ofrece un servicio que permi
 - Extracción de texto utilizando EasyOCR.
 - Visualización del texto extraído y las imágenes procesadas en la página web.
 
+## Recursos
+- easyocr_flask_equipo1.py (Archivo de python con el script para el servidor web y el procesamiento ocr)
+- requirements.txt (Librerias y módulos a utilizar para el funcionamiento normal del servidor web)
+- endpoints.txt (Archivo de texto con las rutas para utilizar el servidor web)
+- templates/index.html (Directorio y archivo html para la interfaz web del servidor Flask)
+  
 ## Funcionamiento
 Diagrama de secuencia sobre la comunicación y procesos del servidor.
 ![](https://github.com/Chiscock323/EQUIPO1OCR/blob/main/Diagrama%20funcionamiento.png)
