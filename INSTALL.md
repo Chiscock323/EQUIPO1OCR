@@ -33,10 +33,12 @@ pip install -r requirements.txt
 
 4.Ejecutar el servidor.
 Una vez instaladas las dependencias, accede a la ruta del proyecto y ejecuta el servidor:
+
 cd EQUIPO10CR-main
 
-Archivo.py :
-python easyocr_flask_equipo1.py
+ejecuta el archivo :
+
+easyocr_flask_equipo1.py
 
 5. Con el servidor en ejecución, abre tu navegador y visita:
 http://127.0.0.1:5000/
