@@ -12,10 +12,10 @@ Clonar el repositorio.
 
 1.Desde la línea de comandos, usa el siguiente comando para clonar el repositorio:
 
-git clone https://github.com/<tu-usuario>/<tu-repositorio>.git
+git clone https://github.com/Chiscock323/EQUIPO1OCR.git
 
+2.(Opcional) Crear un ambiente virtualizado en python
 
-2.(Opcional) Crear un ambiente virtualizado en python 
 En Windows, ejecuta
 
 python -m venv <ruta>/env
